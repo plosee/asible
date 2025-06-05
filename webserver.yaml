@@ -1,0 +1,26 @@
+- name: Veebiserveri tarkvara vaade
+  hosts: webservers
+  tasks:
+  - name: Webserve package install
+    become: true
+    ansible.builtin.package:
+      name:
+      - php
+      - php-mysqlnd
+      - httpd
+      state: present
+  - name: Apache enable
+    become: true
+    service:
+      name: httpd
+      state: started
+      enabled: yes
+  - name: Open HTTP ports
+    firewalld:
+      service: "{{ item }}"
+      permanent: yes
+      state: enabled
+      immediate: yes
+    loop:
+    - http
+    - https

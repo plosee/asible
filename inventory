@@ -1,0 +1,4 @@
+[webservers]
+alma ansible_host=10.0.92.22 ansible_ssh_user='kasutaja' ansible_ssh_pass='Passw0rd' ansible_become_pass='Passw0rd'
+[dbservers]
+debian ansible_host=10.0.92.21 ansible_ssh_user='kasutaja' ansible_ssh_pass='Passw0rd' ansible_become_pass='Passw0rd'
