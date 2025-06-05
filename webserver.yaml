@@ -15,12 +15,3 @@
       name: httpd
       state: started
       enabled: yes
-  - name: Open HTTP ports
-    firewalld:
-      service: "{{ item }}"
-      permanent: yes
-      state: enabled
-      immediate: yes
-    loop:
-    - http
-    - https
